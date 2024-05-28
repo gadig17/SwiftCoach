@@ -10,6 +10,9 @@
     "web-vitals": "^4.0.1"
   },
   "scripts": {
+    "homepage": "https://gadig17.github.io/SwiftCoach",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

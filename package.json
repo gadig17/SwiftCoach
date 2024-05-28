@@ -4,9 +4,6 @@
   "description": "SwiftCoach - Your personalized running coach.",
   "main": "server.js",
   "scripts": {
-    "homepage": "https://gadig17.github.io/SwiftCoach",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
