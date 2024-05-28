@@ -1,0 +1,27 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]  # Trigger on pushes to the master branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Workflow will run on Ubuntu virtual machines
+
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from the repository
+      - name: Use Node.js 16  # Use a specific Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm install  # Install dependencies
+      - name: Build the app
+        run: npm run build  # Build the app for production
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1  # Deploy to GitHub Pages
+        with:
+          token: ${{ secrets.SWIFTCOACH_TOKEN }}  # Access token with deploy permissions
+          folder: build  # Folder containing the built app (replace if different)
+          single-branch: true  # Deploy only the latest commit
+
