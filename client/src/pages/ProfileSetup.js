@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function ProfileSetup() {
   const [profile, setProfile] = useState({
@@ -11,6 +12,8 @@ function ProfileSetup() {
     goal: '5K',
     targetDate: '',
   });
+
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
