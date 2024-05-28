@@ -23,6 +23,10 @@ jobs:
         cd client
         npm install
         npm run build
+    
+    - name: Run tests
+      run: |
+        cd client
         npm test
         
     - name: Deploy

@@ -38,6 +38,12 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "gh-pages": "^6.1.1"
+    "@testing-library/jest-dom": "^6.4.5",
+    "gh-pages": "^6.1.1",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"]
   }
 }
