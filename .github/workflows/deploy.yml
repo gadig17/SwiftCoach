@@ -9,19 +9,24 @@ jobs:
     runs-on: ubuntu-latest  # Workflow will run on Ubuntu virtual machines
 
     steps:
-      - uses: actions/checkout@v4  # Checkout code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4  # Checkout code from the repository
+
       - name: Use Node.js 20  # Use a specific Node.js version
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
         run: npm install  # Install dependencies
-      - name: Build the app
-        run: npm run build  # Build the app for production
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1  # Deploy to GitHub Pages
-        with:
-          token: ${{ secrets.SWIFTCOACH_TOKEN }}  # Access token with deploy permissions
-          folder: build  # Folder containing the built app (replace if different)
-          single-branch: true  # Deploy only the latest commit
+        working-directory: client
 
+      - name: Build project
+        run: npm run build  # Build the app for production
+        working-directory: client
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3  # Deploy to GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: client/build
