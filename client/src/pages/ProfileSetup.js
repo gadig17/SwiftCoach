@@ -22,7 +22,7 @@ function ProfileSetup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/profile', {
+    const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/profile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
