@@ -6,7 +6,7 @@ import TrainingPlan from './pages/TrainingPlan';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/SwiftCoach'>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/profile-setup" component={ProfileSetup} />
